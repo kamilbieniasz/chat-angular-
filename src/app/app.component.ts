@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,4 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
- users = faUsers;
 }
