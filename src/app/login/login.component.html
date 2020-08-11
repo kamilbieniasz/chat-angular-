@@ -5,8 +5,8 @@
       </span>
       <span class="loginFormContainer"> 
         <form class="loginForm">
-          <input type="text" class="loginInput" placeholder="Login">
-          <button>Dołącz do czatu!</button>
+          <input type="text" class="loginInput" placeholder="Login" [(ngModel)]="login" name="login">
+          <button [disabled]="!login" (click)="joinToChat()" >Dołącz do czatu!</button>
         </form>
       </span>
     </span>

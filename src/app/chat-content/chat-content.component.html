@@ -1,12 +1,13 @@
 <div class="chatContainer">
-    <span class="messages">
-        <span class="user"></span>
-        <span class="date"></span>
-        <span class="content"></span>
-        
+  <span class="messages" *ngFor="let message of messages">
+    <span class="userAndDateContainer">
+      <span class="user">{{message.user}}</span>
+      <span class="date">{{message.date | date:'HH:MM'}}</span>
     </span>
-    <span class="newMessage">
-        <input type="text" class="messageContent">
-        <button class="sendMessage"></button>
-    </span>
+    <span class="content">{{message.content}}</span>
+  </span>
+  <span class="newMessage">
+    <textarea type="text" class="messageContent" [(ngModel)]="messageContent"></textarea>
+    <button class="sendMessage" (click)=newMessage()>Wyślij</button>
+  </span>
 </div>

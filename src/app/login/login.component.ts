@@ -1,5 +1,7 @@
+import { MessagesServiceService } from './../services/messages-service.service';
 import { Component, OnInit } from '@angular/core';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +10,22 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons';
 })
 export class LoginComponent implements OnInit {
   users = faUsers;
+  login: string;
 
-  constructor() { }
+  constructor(
+    private messagesService: MessagesServiceService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
+
+  joinToChat(){
+    this.messagesService.login = this.login;
+    localStorage.setItem('login', this.login);
+    this.router.navigate(['/chat']);
+  }
+
+
 
 }

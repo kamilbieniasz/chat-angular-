@@ -1,50 +1,63 @@
-.chatContainer{
-    width:50%;
-    height:95%;
+.chatContainer {
+  width: 50%;
+  height: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  background-color: #32302F;
+  display:flex;
+  flex-direction: column;
+
+  .messages {
+    color: white;
+    margin-top:10px;
+
+    .userAndDateContainer {
+      width:50vw;
+      display:flex;
+      justify-content: space-between;
+
+      @mixin userAndDate {
+        width: 300px;
+        height: 20px;
+      }
+      .user {
+        @include userAndDate;
+      }
+
+      .date {
+        @include userAndDate;
+        text-align: right;
+      }
+    }
+
+    .content {
+      display:flex;
+      width: 100%;
+      min-height: 50px;
+    }
+  }
+  .messages :first-child{
+    margin:0;
+  }
+
+
+  .messageContent {
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translateY(-50%) translateX(-50%);
-    background-color: #32302F;
+    width: 75%;
+    min-height: 50px;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    resize: none;
+  }
 
-    @mixin userAndDate{
-        width:150px;
-        height:20px;
-        border:1px solid white;
-        position: absolute;
-    }
-
-    .user{
-        @include userAndDate;
-    }
-
-    .date{
-        @include userAndDate;
-        right:0px
-    }
-    .content{
-        position: absolute;
-        width:90%;
-        min-height: 50px;
-        border:1px solid white;
-        top:22px;
-        left:50%;
-        transform:translateX(-50%);
-    }
-    
-    .messageContent{
-        position: absolute;
-        width:75%;
-        min-height: 50px;
-        bottom:20px;
-        left:20px;
-        display: flex;
-    }
-    .sendMessage{
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-        height: 50px;
-        width:100px;
-    }
+  .sendMessage {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 50px;
+    width: 100px;
+  }
 }
