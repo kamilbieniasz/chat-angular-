@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  joinToChat(){
+  joinToChat(): void{
     this.messagesService.login = this.login;
     localStorage.setItem('login', this.login);
     this.router.navigate(['/chat']);

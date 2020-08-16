@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth.guard';
+import { MessagesServiceService } from './services/messages-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +24,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MessagesServiceService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

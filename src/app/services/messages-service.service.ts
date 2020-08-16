@@ -9,9 +9,12 @@ import { Message } from '../interfaces/Message-interface';
 export class MessagesServiceService {
 
   private url = 'http://localhost:3000';
+  private isUserLoggedIn;
   login: string;
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) {
+    this.isUserLoggedIn = false;
+   }
 
 
   getMessages(): Observable<Message[]>{
@@ -33,6 +36,13 @@ export class MessagesServiceService {
     return this.http.post<Partial<Message[]>>(this.url + '/messages', message);
   }
 
-  
+  getUserLoggedIn(): boolean{
+    if(localStorage.getItem('login') !== null){
+      this.isUserLoggedIn = true;
+    }
+    console.log(this.isUserLoggedIn);
+    return this.isUserLoggedIn;
+  }
+
 
 }
