@@ -6,8 +6,8 @@
     </span>
     <span class="content">{{message.content}}</span>
   </span>
-  <span class="newMessage">
-    <textarea type="text" class="messageContent" [(ngModel)]="messageContent"></textarea>
-    <button class="sendMessage" (click)=newMessage()>Wyślij</button>
-  </span>
 </div>
+  <div class="newMessage">
+    <textarea type="text" class="messageContent" [(ngModel)]="messageContent"></textarea>
+    <button class="sendMessage" (click)=newMessage() [disabled]="!messageContent">Wyślij</button>
+  </div>
