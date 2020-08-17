@@ -2,6 +2,7 @@ import { MessagesServiceService } from './../services/messages-service.service';
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { Message } from '../interfaces/Message-interface';
 import { Subscription, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat-content',
@@ -13,7 +14,7 @@ export class ChatContentComponent implements OnInit, OnDestroy {
   messageContent: string;
   private subscription = new Subscription();
 
-  constructor( private messagesService: MessagesServiceService) { }
+  constructor( private messagesService: MessagesServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getMessages();
@@ -40,6 +41,11 @@ export class ChatContentComponent implements OnInit, OnDestroy {
     setInterval(() => {
       this.getMessages();
     }, 5000);
+  }
+
+  logout(): void{
+    localStorage.removeItem('login');
+    this.router.navigate(['/login']);
   }
 
 }
