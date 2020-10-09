@@ -8,7 +8,7 @@ import { Message } from '../interfaces/Message-interface';
 })
 export class MessagesServiceService {
 
-  private url = 'http://localhost:3000';
+  private url = 'https://shoutbox-db.herokuapp.com/';
   private isUserLoggedIn;
   login: string;
 
@@ -19,7 +19,7 @@ export class MessagesServiceService {
 
   getMessages(): Observable<Message[]>{
     console.log(this.login);
-    return this.http.get<Message[]>(this.url + '/messages');
+    return this.http.get<Message[]>(this.url + 'messages');
   }
 
   postMessage(content: string): Observable<Message[]>{
@@ -33,7 +33,7 @@ export class MessagesServiceService {
       date: currentDate,
     };
 
-    return this.http.post<Partial<Message[]>>(this.url + '/messages', message);
+    return this.http.post<Partial<Message[]>>(this.url + 'messages', message);
   }
 
   getUserLoggedIn(): boolean{
